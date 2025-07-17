@@ -8,5 +8,5 @@ const App = () => {
     </main>
   )
 }
-
+// This is the main entry point of the application
 export default App
