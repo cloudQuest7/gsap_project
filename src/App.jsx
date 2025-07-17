@@ -9,4 +9,4 @@ const App = () => {
   )
 }
 // This is the main entry point of the application
-export default App
+export default  App
