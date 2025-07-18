@@ -29,5 +29,5 @@ const App = () => {
     </div>
   );
 };
-
+// This is the main App component that sets up the routes for the application.
 export default App;
