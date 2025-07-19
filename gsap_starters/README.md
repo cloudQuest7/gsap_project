@@ -70,3 +70,34 @@ npm run dev
 
 Open [`http://localhost:5173`](http://localhost:5173) in your browser to view the project.
 
+
+## <br /> 🧩 Features
+
+- Interactive GSAP demos for hands-on learning
+- Modular React components for easy customization
+- Clean codebase with comments and best practices
+- Responsive design for desktop and mobile
+- Ready-to-use starter templates for animation projects
+
+## <br /> 🗂️ Folder Structure
+
+```
+gsap-cc-starter/
+├── public/
+│   └── preview.png
+├── src/
+│   ├── components/
+│   ├── assets/
+│   ├── App.jsx
+│   └── main.jsx
+├── package.json
+└── README.md
+```
+
+## <br /> 🧑‍💻 Contributing
+
+Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
+
+## <br /> 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
