@@ -8,14 +8,14 @@ const GsapStagger = () => {
       y: 250,
       rotate: 360,
       borderRadius: '100%',
-      repeat: -1,
+      repeat: -2,
       yoyo: true,
       stagger: {
         amount: 1.5,
         grid: [2, 1],
         axis: "y",
         ease : "circ.inOut",
-        from: "center",
+        from: "edge",
       },
 
     });
