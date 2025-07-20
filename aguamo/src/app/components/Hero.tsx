@@ -133,7 +133,7 @@ const Hero = () => {
           muted
           playsInline
           preload="auto"
-          src="/videos/input.mp4"
+          src="/videos/output.mp4"
 		  autoPlay
 		  
         />
@@ -143,3 +143,4 @@ const Hero = () => {
 };
 
 export default Hero;
+// ffmpeg -i input.mp4 -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
