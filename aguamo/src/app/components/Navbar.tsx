@@ -5,7 +5,9 @@ import { navLinks } from '../../../constants';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Image from 'next/image';
 
+gsap.registerPlugin(ScrollTrigger);
 const Navbar = () => {
     useGSAP(() => {
         const navTween = gsap.timeline({
@@ -33,7 +35,13 @@ const Navbar = () => {
     <nav className="">
         <div>
             <a href='#home' className="flex items-center gap-2">
-                <img src="/images/logo.png" alt="logo" className="w-10 h-10 object-contain" />
+                <Image 
+                 src="/images/logo.png" 
+                 alt="logo" 
+                 width={40}
+                 height={40}
+                 className="object-contain"
+                />
                 <p>Velvet Pour</p>
             </a>
             <ul>

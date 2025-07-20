@@ -15,9 +15,7 @@ const Page = () => {
    <main>
     <Navbar />
     <Hero />
-    <div  className='h-dvh bg-black' /> // This div is used to ensure the hero section takes full viewport height
-
-    
+    <div  className='h-dvh bg-black' /> 
    </main>
   );
 };
