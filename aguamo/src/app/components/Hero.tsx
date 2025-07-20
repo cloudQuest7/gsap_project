@@ -1,9 +1,12 @@
 import { useGSAP } from "@gsap/react"
-import { use } from "react"
 import gsap from "gsap"
 import { SplitText } from "gsap/SplitText";
+import { useEffect } from "react";
 
 const Hero = () => {
+    const videoRef = useRef();
+    const isMobile = useMediaQuery('(max-width: 768px)');
+
   useGSAP(() => {
     const heroSplit = new SplitText('.title', {type: 'chars, words'});
     const paragraphSplit = new SplitText('.subtitle', {type: 'lines'});
@@ -36,6 +39,55 @@ const Hero = () => {
     })
     .to('.right-leaf', {y: 200}, 0)
     .to('.left-leaf', {y: -200}, 0)
+
+    const startValue = isMobile? 'top 50%' :'center 60%';
+    const endValue = isMobile? '120% top':'botton top';
+    
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: 'video',
+            start: startValue,
+            end: endValue,
+            scrub: true,
+            pin: true,
+            // onEnter: () => { videoRef.current.play() },
+            // onEnterBack: () => { videoRef.current.play() },
+            // onLeave: () => { videoRef.current.pause() },
+            // onLeaveBack: () => { videoRef.current.pause() },
+        }
+    })
+
+    videoRef.current.onloadedmetadata = () => {
+     tl.to(videoRef.current, {
+         currentTime: videoRef.current.duration,
+        })
+    }
+    // .fromTo(
+    //     videoRef.current, 
+    //     {
+    //         currentTime: 0,
+    //         scale: isMobile ? 1.2 : 1.5,
+    //         opacity: 0.5
+    //     },
+    //     {
+    //         scale: 1,
+    //         opacity: 1,
+    //         currentTime: 10,
+    //         ease: 'none'
+    //     }
+    // );
+    // if(videoRef.current){
+    //     if(videoRef.current.readyState >= 2) {
+    //         videoTimeLineRef.current.getChildren()[0].vars.currentTime = videoRef.current.duration;
+    //     } else {
+    //         videoRef.current.addEventListener('loadeddata', () => {
+    //             videoTimeLineRef.current.getChildren()[0].vars.currentTime = videoRef.current.duration;
+    //         });
+    //     }
+    // }
+
+
+
   }, []);
 
 
@@ -53,6 +105,7 @@ const Hero = () => {
              alt="hero background"
              className="right-leaf" 
              />
+             
 
              <div className="body">
                 <div className="content">
@@ -69,14 +122,24 @@ const Hero = () => {
                         <a href="#cocktails">View Cocktails</a>
 
                     </div>
-
-
                 </div>
              </div>
         </section>
+        <div className="video absolute inset-0">
+            <video 
+            ref={videoRef}
+            src ="/videos/input.mp4"
+            muted
+            playsInline
+            preload="auto"
+
+
+            />
+        </div>
 
     </>
   )
 }
 
 export default Hero
+
