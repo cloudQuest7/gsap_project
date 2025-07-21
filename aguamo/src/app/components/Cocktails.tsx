@@ -22,7 +22,7 @@ const Cocktails = () => {
               />
         <div className='list'>
             <div className='popular'>
-                <h2> Most Popular Cocktails:</h2>
+                <h2> Most Popular Cocktails here:</h2>
                 <ul>
                     {cocktailLists.map(({name, country, detail, price}) => (
                        <li key={name}>
@@ -37,8 +37,8 @@ const Cocktails = () => {
 
             </div>
 
-        </div>
-
+        </div>           
+ {/* timestamp : 1:30 */}
     </section>
   )
 }
