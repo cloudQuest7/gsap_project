@@ -3,11 +3,13 @@ import React from 'react'
 import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import { allCocktails } from '../../../constants'
-import {useRef, useState} from 'react'
+import {useRef} from 'react'
 import { gsap } from 'gsap'
 
 const Menu = () => {
-    const contentRef = useRef();
+    const contentRef = useRef<HTMLDivElement | null>(null);
+
+
 
     const [currentIndex, setCurrentIndex] = React.useState(0);
 
@@ -22,13 +24,14 @@ const Menu = () => {
 
 
     const totalCocktails = allCocktails.length;
-    const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
         const newIndex = (index +totalCocktails) % totalCocktails;   
         setCurrentIndex(newIndex); 
     }
-    const getCocktailAt = (indexOffset) => {
-        return allCocktails[(currentIndex + indexOffset + totalCocktails) % totalCocktails];
-    }
+    const getCocktailAt = (indexOffset: number) => {
+  return allCocktails[(currentIndex + indexOffset + totalCocktails) % totalCocktails];
+};
+
 
     const currentCocktail = getCocktailAt(0);
     const prevCocktail = getCocktailAt(-1);
