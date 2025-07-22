@@ -9,6 +9,7 @@ import Cocktails from './components/Cocktails';
 import About from './components/About';
 import Art from './components/Art';
 import Menu from './components/Menu'; 
+import Contact from './components/Contact';
 
 const Page = () => {
   useEffect(() => {
@@ -24,6 +25,8 @@ const Page = () => {
     <About />
     <Art />
     <Menu />
+    <Contact />
+   
     {/* <div className='h-dvh bg-black' /> */}
    </main>
   );
