@@ -1,18 +1,19 @@
 import React from 'react'
 import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
 import{ SplitText } from 'gsap/all'
 import { duration } from '@mui/material'
-import { ScrollTimeLine } from 'gsap/ScrollTrigger'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 const About = () => {
     useGSAP(() => {
       const titleSplit = SplitText.create('#about h2',{
-        type: 'lines'
+        type: 'words'
       })
 
-    const scrollTimline = gsap.timeline({
+    const scrollTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: '#about',
             start: 'top center',
@@ -27,10 +28,14 @@ const About = () => {
         ease:'expo.out',
         stagger:0.02
     })
-    .from('.top-grid div', '.bottom-grid div',{
-        opacity:0, duration: 1, ease:'power.inOut', stagger:0.04,
-    }, '-=0.5'
-    )})
+    .from('.top-grid div, .bottom-grid div', {
+  opacity: 0,
+  duration: 1,
+  ease: 'power.inOut',
+  stagger: 0.04,
+  delay: -0.5 // if you meant to use "-=0.5"
+})
+})
 
 
   return (
